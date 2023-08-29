@@ -1,15 +1,15 @@
 package worktypegroups;
 
-import org.junit.Test;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
+import org.testng.annotations.Test;
 
 public class CreateWorkTypeGroup extends Base {
 
-	@org.testng.annotations.Test
+	@Test 
 	public void workTypeGroupCreation() {
-		JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
 		WebElement hamburgerMenu = driver.findElement(By.xpath("//div[@role = 'navigation']/button"));
 		hamburgerMenu.click();
 		driver.findElement(By.xpath("//button[text() = 'View All']")).click();

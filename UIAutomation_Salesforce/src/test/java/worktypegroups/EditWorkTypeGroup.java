@@ -26,7 +26,6 @@ public class EditWorkTypeGroup extends Base{
 	action.sendKeys(Keys.ENTER).build().perform();
 		
 	WebElement arrow = driver.findElement(By.xpath("//a[normalize-space()='Salesforce Automation']/ancestor::tr/td[5]//a"));
-	JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
 	jsExecutor.executeScript("arguments[0].click();", arrow);
 	
 	WebElement edit = driver.findElement(By.xpath("//a[@title = 'Edit']"));
@@ -34,9 +33,10 @@ public class EditWorkTypeGroup extends Base{
 	WebElement textBox = driver.findElement(By.xpath("//input[@name = 'Name']"));
 	textBox.clear();
 	textBox.sendKeys("Automation");
-	driver.findElement(By.xpath("//button[@role = 'combobox']")).click();
+	WebElement groupType = driver.findElement(By.xpath("//button[@role = 'combobox']"));
+	jsExecutor.executeScript("arguments[0].click();", groupType);
 	driver.findElement(By.xpath("//lightning-base-combobox-item[@data-value = 'Capacity']")).click();
-	driver.findElement(By.name("SaveEdit")).click();
+	driver.findElement(By.xpath("//button[text() = 'Save']")).click();
 	
 	if (driver.findElement(By.xpath("//div[@role = 'alertdialog']")).getText().equals("Work Type Group" +editGroupName+ "was saved.")) {
 		System.out.println("Verified");

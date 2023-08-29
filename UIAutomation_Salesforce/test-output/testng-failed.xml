@@ -3,12 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="worktypegroups.SortOrderByName">
+      <class name="worktypegroups.CreateWorkTypeGroup">
         <methods>
-          <include name="checkSorting"/>
+          <include name="workTypeGroupCreation"/>
+          <include name="tearDown"/>
           <include name="setUp"/>
         </methods>
-      </class> <!-- worktypegroups.SortOrderByName -->
+      </class> <!-- worktypegroups.CreateWorkTypeGroup -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
