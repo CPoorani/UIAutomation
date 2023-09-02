@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class WorkTypeWithoutMandatoryFields extends Base {
@@ -27,6 +28,8 @@ public class WorkTypeWithoutMandatoryFields extends Base {
 
 		driver.findElement(By.xpath("//button[@role = 'combobox']")).click();
 		driver.findElement(By.xpath("//lightning-base-combobox-item[@data-value = 'Capacity']")).click();
-		driver.findElement(By.xpath("//div[text() = 'Complete this field.']")).isDisplayed();
+		WebElement checkCondition = driver.findElement(By.xpath("//div[text() = 'Complete this field.']"));
+		boolean flag = checkCondition.isDisplayed();
+		Assert.assertTrue(flag);
 	}
 }
