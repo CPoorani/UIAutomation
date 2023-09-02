@@ -26,7 +26,6 @@ public class DeleteWorkTypeGroup extends Base {
 		JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
 		jsExecutor.executeScript("arguments[0].click();", arrow);
 		driver.findElement(By.xpath("//a[@title = 'Delete']")).click();
-		driver.findElement(By.xpath("//button[@title = 'Delete']")).click();
 		String actual = driver.findElement(By.xpath("//div[@role = 'alertdialog']")).getText();
 		
 		Assert.assertEquals(actual, "Work Type Group" +editGroupName+ "was deleted.");
