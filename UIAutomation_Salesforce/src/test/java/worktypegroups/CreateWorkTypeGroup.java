@@ -8,8 +8,9 @@ import org.testng.annotations.Test;
 
 public class CreateWorkTypeGroup extends Base {
 
-	@Test 
+	@Test
 	public void workTypeGroupCreation() {
+		JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
 		WebElement hamburgerMenu = driver.findElement(By.xpath("//div[@role = 'navigation']/button"));
 		hamburgerMenu.click();
 		driver.findElement(By.xpath("//button[text() = 'View All']")).click();
@@ -19,7 +20,7 @@ public class CreateWorkTypeGroup extends Base {
 				"//div[@class='slds-context-bar__label-action slds-p-left--none slds-p-right--x-small']//a[@role='button']//lightning-primitive-icon//*[name()='svg']"))
 				.click();
 		
-		WebElement groupButton = 	driver.findElement(By.xpath("//span[text() = 'New Work Type Group']"));
+		WebElement groupButton = driver.findElement(By.xpath("//span[contains(text(), \"New Work Type Group\")]"));
 		jsExecutor.executeScript("arguments[0].click();", groupButton);
 
 		driver.findElement(By.xpath("//input[@type = 'text']")).sendKeys(groupName);

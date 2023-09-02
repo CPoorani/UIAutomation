@@ -16,6 +16,7 @@ public class EditWorkTypeGroup extends Base{
 	
 	@Test
 	public void editWorkTypeGroup() {
+	JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
 	WebElement hamburgerMenu = driver.findElement(By.xpath("//div[@role = 'navigation']/button"));
 	hamburgerMenu.click();
 	driver.findElement(By.xpath("//button[text() = 'View All']")).click();
